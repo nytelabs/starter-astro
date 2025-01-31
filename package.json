@@ -3,9 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "start:dev": "env-cmd -f .env.development astro dev",
+    "start:prod": "env-cmd -f .env.production astro dev",
+    "build:dev": "env-cmd -f .env.development astro build",
+    "build:prod": "env-cmd -f .env.production astro build",
     "astro": "astro"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.1",
+    "env-cmd": "^10.1.0",
     "tailwindcss": "^4.0.1"
   }
 }

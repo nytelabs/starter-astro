@@ -2,23 +2,34 @@ image: node:22
 
 definitions:
   steps:
-    # Build
-    - step: &build
-        name: Build
+    # Build - Dev
+    - step: &build-dev
+        name: Build - Dev
         caches:
           - node
         artifacts:
           - dist/**
         script:
           - yarn install --frozen-lockfile
-          - yarn build
+          - yarn build:dev
 
-    # Deploy
-    - step: &deploy
-        name: Deploy
+    # Build - Prod
+    - step: &build-prod
+        name: Build - Prod
+        caches:
+          - node
+        artifacts:
+          - dist/**
+        script:
+          - yarn install --frozen-lockfile
+          - yarn build:prod
+
+    # Deploy - Dev
+    - step: &deploy-dev
+        name: Deploy - Dev
         trigger: manual
         depends_on:
-          - Build
+          - Build - Dev
         caches:
           - node
         artifacts:
@@ -26,13 +37,34 @@ definitions:
           paths:
             - dist/**
         script:
-          - pipe: atlassian/firebase-deploy:0.2.1
-            variables:
-              FIREBASE_TOKEN: $FIREBASE_TOKEN
-              PROJECT_ID: ADD_PROJECT_ID
+          - echo "Add development deployment steps"
+
+    # Deploy - Prod
+    - step: &deploy-prod
+        name: Deploy - Prod
+        trigger: manual
+        depends_on:
+          - Build - Prod
+        caches:
+          - node
+        artifacts:
+          download: true
+          paths:
+            - dist/**
+        script:
+          - echo "Add production deployment steps"
 
 pipelines:
+  pull-requests:
+    main:
+      - step: *build-dev
+
   branches:
     main:
-      - step: *build
-      - step: *deploy
+      - step: *build-dev
+      - step: *deploy-dev
+
+  custom:
+    release:
+      - step: *build-prod
+      - step: *deploy-prod
