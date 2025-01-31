@@ -1,0 +1,4 @@
+Sitemap: https://ADD_SITE_URL/sitemap.xml
+
+User-agent: *
+Disallow:

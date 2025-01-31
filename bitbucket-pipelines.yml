@@ -1,0 +1,38 @@
+image: node:22
+
+definitions:
+  steps:
+    # Build
+    - step: &build
+        name: Build
+        caches:
+          - node
+        artifacts:
+          - dist/**
+        script:
+          - yarn install --frozen-lockfile
+          - yarn build
+
+    # Deploy
+    - step: &deploy
+        name: Deploy
+        trigger: manual
+        depends_on:
+          - Build
+        caches:
+          - node
+        artifacts:
+          download: true
+          paths:
+            - dist/**
+        script:
+          - pipe: atlassian/firebase-deploy:0.2.1
+            variables:
+              FIREBASE_TOKEN: $FIREBASE_TOKEN
+              PROJECT_ID: ADD_PROJECT_ID
+
+pipelines:
+  branches:
+    main:
+      - step: *build
+      - step: *deploy
