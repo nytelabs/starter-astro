@@ -21,7 +21,7 @@
 
   // Astro
   "New Astro File": {
-    "prefix": "nrc",
+    "prefix": "naf",
     "scope": "astro",
     "description": "New Astro File",
     "body": [
