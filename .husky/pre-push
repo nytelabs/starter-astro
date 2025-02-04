@@ -1,0 +1,2 @@
+CI=true yarn lint
+CI=true yarn tsc

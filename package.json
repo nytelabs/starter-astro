@@ -1,13 +1,16 @@
 {
-  "name": "website",
+  "name": "app",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
+    "astro": "astro",
     "start:dev": "env-cmd -f .env.development astro dev",
     "start:prod": "env-cmd -f .env.production astro dev",
     "build:dev": "env-cmd -f .env.development astro build",
     "build:prod": "env-cmd -f .env.production astro build",
-    "astro": "astro"
+    "lint": "eslint . --ext ts,tsx",
+    "tsc": "tsc",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
@@ -19,7 +22,16 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.1",
+    "@testing-library/react": "^14.1.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
     "env-cmd": "^10.1.0",
-    "tailwindcss": "^4.0.1"
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^9.1.7",
+    "tailwindcss": "^4.0.1",
+    "typescript": "^5.7.2"
   }
 }
