@@ -1,0 +1,20 @@
+image: node:22
+
+definitions:
+  steps:
+    - step: &validations
+        name: Validations
+        caches:
+          - node
+        script:
+          - yarn install --frozen-lockfile
+          - yarn lint
+          - yarn tsc
+
+pipelines:
+  branches:
+    main:
+      - step: *validations
+  pull-requests:
+    "**":
+      - step: *validations
