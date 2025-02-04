@@ -4,10 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "astro": "astro",
-    "start:dev": "env-cmd -f .env.development astro dev",
-    "start:prod": "env-cmd -f .env.production astro dev",
-    "build:dev": "env-cmd -f .env.development astro build",
-    "build:prod": "env-cmd -f .env.production astro build",
+    "start": "env-cmd -f .env astro dev",
+    "build": "env-cmd -f .env astro build",
     "lint": "eslint . --ext ts,tsx",
     "tsc": "tsc",
     "prepare": "husky"

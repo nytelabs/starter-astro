@@ -11,10 +11,28 @@ definitions:
           - yarn lint
           - yarn tsc
 
+    - step: &build
+        name: Build
+        depends_on:
+          - Validations
+        caches:
+          - node
+        script:
+          - yarn install --frozen-lockfile
+          - cp .env.development .env
+          - yarn build
+
 pipelines:
-  branches:
-    main:
-      - step: *validations
-  pull-requests:
-    "**":
-      - step: *validations
+  default:
+    - step: *validations
+    - step: *build
+
+  # branches:
+  #   main:
+  #     - step: *validations
+  #     - step: *build
+
+  # pull-requests:
+  #   "**":
+  #     - step: *validations
+  #     - step: *build
