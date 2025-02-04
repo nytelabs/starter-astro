@@ -4,7 +4,29 @@ import BaseLayout from "../layouts/base.layout.astro";
 ---
 
 <BaseLayout title="Page Not Found">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam
-  nobis, voluptatum omnis inventore excepturi tempora repellendus cum maiores
-  quaerat cumque officia sequi, porro dolorem qui possimus, nisi nemo magnam?
+  <div class="w-dvw h-dvh flex items-center justify-center">
+    <div class="w-[460px] m-auto flex flex-col items-center p-6">
+      <div class="mb-12">
+        <span role="img" class="text-6xl">🥺</span>
+      </div>
+
+      <h1 class="text-4xl text-neutral-800 font-sans font-bold mb-4">
+        Page Not Found
+      </h1>
+
+      <p class="text-xl text-neutral-800 text-center mb-8">
+        The page you are looking for does not exist. You may have followed a
+        broken link or the page might have been removed.
+      </p>
+
+      <div class="w-auto">
+        <a
+          href="/"
+          class="text-xl text-neutral-800 underline hover:no-underline"
+        >
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
 </BaseLayout>

@@ -1,7 +1,7 @@
-@import "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;900";
+@import "https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;900";
 
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "DM Sans", sans-serif;
+  --font-sans: "Figtree", sans-serif;
 }
