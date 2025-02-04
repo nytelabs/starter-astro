@@ -27,7 +27,7 @@
     "body": [
       "---",
       "// Layouts",
-      "import BaseLayout from \"../layouts/base.layout.astro\";",
+      "import BaseLayout from \"@/layouts/base.layout.astro\";",
       "---",
       "",
       "<BaseLayout title=\"$0\">",
