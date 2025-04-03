@@ -46,7 +46,7 @@ yarn install
 Start the Development Server: Launch the Astro development server with:
 
 ```sh
-yarn dev
+yarn start:dev
 ```
 
 ## Customization
