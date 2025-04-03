@@ -1,17 +1,20 @@
 {
-  "name": "app",
+  "name": "starter",
   "type": "module",
   "version": "0.1.0",
   "scripts": {
     "astro": "astro",
-    "start": "env-cmd -f .env astro dev",
-    "build": "env-cmd -f .env astro build",
+    "start:dev": "env-cmd -f .env.development astro dev",
+    "start:prod": "env-cmd -f .env.production astro dev",
+    "build:dev": "env-cmd -f .env.development astro build",
+    "build:prod": "env-cmd -f .env.production astro build",
     "lint": "eslint . --ext ts,tsx",
-    "tsc": "tsc",
-    "prepare": "husky"
+    "prepare": "husky",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
+    "@supabase/supabase-js": "^2.49.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "astro": "^5.2.1",
